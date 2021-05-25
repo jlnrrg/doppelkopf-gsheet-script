@@ -1,0 +1,11 @@
+
+{
+    "name": "doppelkopf-notation-script",
+    "description": "A script for the Doppelkopf google sheet",
+    "version": "0.1.0",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "lint": "tsc --noEmit && eslint \"**/*.ts\" --quiet --fix"
+      }
+  }
