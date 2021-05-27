@@ -24,22 +24,25 @@ function onEditTransformCell(e: GoogleAppsScript.Events.SheetsOnEdit) {
     case 'w':
       formular = `=${
         previousCellA1 != null ? `${previousCellA1}+` : ''
-      }(${tackenA1}*POW(2;${bockA1}))`
+      }(${tackenA1}*IF(LEN(${bockA1})>0;POW(2;(LEN(${bockA1})));1))`
       break
     case 'l':
       formular = `=${
         previousCellA1 != null ? `${previousCellA1}-` : ''
-      }(${tackenA1}*POW(2;${bockA1}))`
+      }(${tackenA1}*IF(LEN(${bockA1})>0;POW(2;(LEN(${bockA1})));1))`
       break
     case 'ws':
       formular = `=${
         previousCellA1 != null ? `${previousCellA1}+` : ''
-      }(${tackenA1}*POW(2;${bockA1})*3)`
+      }(${tackenA1}*IF(LEN(${bockA1})>0;POW(2;(LEN(${bockA1})));1)*3)`
       break
     case 'ls':
       formular = `=${
         previousCellA1 != null ? `${previousCellA1}-` : ''
-      }(${tackenA1}*POW(2;${bockA1})*3)`
+      }(${tackenA1}*IF(LEN(${bockA1})>0;POW(2;(LEN(${bockA1})));1)*3)`
+      break
+    case 'n':
+      formular = previousCellA1 != null ? `=${previousCellA1}` : ''
       break
   }
   console.log('Range: ' + JSON.stringify(e.range.getRow))
